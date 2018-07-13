@@ -43,7 +43,7 @@ let listOfNumberLists = [numberList, [1,2,3]]
 head numberList -- 1
 tail numberList -- [2,3,4,5]
 last numberList -- 5
-init NumberList -- [1,2,3,4]
+init numberList -- [1,2,3,4]
 
 -- beware calling the above functions on an empty list throws an error
 -- below are some functions that can help guard against that exception
