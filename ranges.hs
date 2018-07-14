@@ -31,3 +31,18 @@ let firstFour = take 4 infiniteList
 let oneTwoThreeForever = cycle [1,2,3]
 let tenOneTwoThrees = take 10 oneTwoThreeForever
 -- [1,2,3,1,2,3,1,2,3,1]  
+
+-- You can also cycle a list of strings
+let heyForevers = cycle "hey "
+let aFewHeys = take 3 heyForevers -- "hey hey hey "
+
+-- If you have just one element (a char or number) you can use repeat instead
+let aForevers = repeat 'a'
+let aFewAs = take 3 aForevers -- "aaa"
+
+let fiveForevers = repeat 5
+let aFewFives = take 3 fiveForevers -- [5,5,5]
+
+-- However there is a shortcut to do all of this..
+let aFewFivesEasier = replicate 3 5
+let aFewAsEasier = replicate 3 'a'
