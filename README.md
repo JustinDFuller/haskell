@@ -6,4 +6,5 @@ Learning haskell
 * [Lists](./lists.hs)
 * [Ranges](./ranges.hs)
 * [List Comprehensions](./listComprehension.hs)
-* [Tuples](./tuples)
+* [Tuples](./tuples.hs)
+* [Types](./types.hs)
