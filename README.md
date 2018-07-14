@@ -4,5 +4,7 @@ Learning haskell
 
 ## Topics
 
-* [lists](./lists.hs)
-* [ranges](./ranges.hs)
+* [Lists](./lists.hs)
+* [Ranges](./ranges.hs)
+* [List Comprehensions](./listComprehension.hs)
+* [Tuples](./tuples)
