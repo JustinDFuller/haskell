@@ -25,8 +25,8 @@ zip [1..] ["one","two"] -- [(1,"one"),(2,"two")]
 -- It can have different types in each of the two lists
 -- It will shorten the longer of the two lists (see the unlimited list as the first arg above)
 
--- Here's a contrived example.. looking for right triangles with the peremiter is 24
-let rightTrianglesGreaterThanTwentyFour = [(a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2, a+b+c == 24]
+-- Here's a contrived example.. looking for right triangles with the perimeter is 24
+let rightTrianglesEqualToTwentyFour = [(a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2, a+b+c == 24]
 -- [(6,8,10)]
 
 -- This shows that tuples can be used in list comprehensions!
