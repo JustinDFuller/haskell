@@ -1,4 +1,4 @@
-<h1><img src="./haskell_logo.svg" alt="Haskell Logo" width="70px"/>haskell</h1>
+<h1><img src="./assets/haskell_logo.svg" alt="Haskell Logo" width="70px"/>haskell</h1>
 Learning haskell
 
 ## Topics
