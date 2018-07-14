@@ -43,3 +43,20 @@ let nounAdjectiveCombos = [adjective ++ " " ++ noun | adjective <- adjectives, n
 -- ["lazy hobo","lazy frog","lazy pope","grouchy hobo","grouchy frog",  
 -- "grouchy pope","scheming hobo","scheming frog","scheming pope"] 
 
+-- Example uses
+
+-- Get the length of a list
+listLength = xs = sum [1 | _ <- xs] -- convert every index to the number 1, and then sum the list of 1s
+-- the "_" means that we are not drawing a variable
+
+-- Remove anything that is not an uppercase letter
+removeNonUppercase st = [c | c <- st, c `elem` ['A'..'Z']]   
+
+-- What if the list contains other lists?
+let xxs = [[1,3,5,2,3,1,2,4,5],[1,2,3,4,5,6,7,8,9],[1,2,4,2,1,6,3,1,3,2,3,6]] 
+let onlyEvenLists = [[x | x <- xs, even x] | xs <- xxs] -- [[2,2,4],[2,4,6,8],[2,4,2,6,2,6]] 
+-- Here we have two list comprehensions, one inside another!
+-- The outer list comprehension pulls out each nested list as the variable "xs"
+-- Then the inner list comprehension pulls out each index from "xs" as "x"
+-- And finally the predicate of the inner comprehension filters out any numbers that are not even
+
