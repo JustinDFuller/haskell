@@ -55,9 +55,26 @@ fst :: (a, b) -> a
 -- The above defines a function (==) that accepts two arguments of the same type, and returns a bool
 -- The arguments must implement the class Eq, which is used to compare for equality.
 
--- Common Typeclasses
+-- Common Typeclasses and functions that implement them
 
--- Eq, == and \= 
--- Ord, >, <, >=, <= 
+-- Eq: == and \= (Are the values equal or not equal)
+-- Ord: >, <, >=, <=, and compare (Is a value greater than, less than, or equal to)
+-- Show: show (Convert to string 3 -> "3")
 
+-- Enum: succ, pred (get successor and predecessor in the enumeration, IE. Get what came after and before)
+-- Anything that implements Enum can be used in a list range.
 
+-- Read: read (Convert from string "3" -> 3)
+-- read is interesting because it needs more information about what to return
+read "5" - 2 -- 7
+read "5" :: Int -- 5
+
+-- If you do not do something with the result of read you get an error because the 
+-- Compiler does not know how to "read" the argument.
+
+-- Bounded: minBound, maxBound (get the lowest and highest possible value)
+-- If you call one of those functions on a tuple you'll get the result for each value in the tuple
+-- maxBound :: (Bool, Int, Char) shows (True,2147483647,'\1114111')
+
+-- Num: *, +, - and other math operators
+-- Num also has a dependency on Show and Eq typeclasses, meaning that if you are Num you are also Show and Eq
