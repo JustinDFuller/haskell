@@ -8,3 +8,4 @@ Learning haskell
 * [List Comprehensions](./listComprehension.hs)
 * [Tuples](./tuples.hs)
 * [Types](./types.hs)
+* [Functions](./functions.hs)
