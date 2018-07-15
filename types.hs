@@ -41,5 +41,23 @@ head :: [a] -> a
 -- Type variables are lowercase and mean that it can be any type
 -- So head returns a single .. something.. from a list of .. somethings!
 
+fst :: (a, b) -> a 
+
+-- The function fst (from the tuples file) accepts a tuple, and returns the first element, no matter what type.
+
+-- Typeclasses
+
+-- Sometimes we can accept any type as long as it meets certain requirements
+-- Typeclasses accept any variable that implements a certain class
+
+-- == :: (Eq a) => a -> a -> Bool  
+
+-- The above defines a function (==) that accepts two arguments of the same type, and returns a bool
+-- The arguments must implement the class Eq, which is used to compare for equality.
+
+-- Common Typeclasses
+
+-- Eq, == and \= 
+-- Ord, >, <, >=, <= 
 
 
