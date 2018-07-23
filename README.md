@@ -9,4 +9,4 @@ Learning haskell
 * [Tuples](./tuples.hs)
 * [Types](./types.hs)
 * [Main Function](./main-function.hs)
-
+* [Do](./do.hs)
