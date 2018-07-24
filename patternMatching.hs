@@ -1,6 +1,5 @@
--- Don't freak out
--- If you're following in order this file is far bigger than most of the one's you've seen so far
--- But it only contains very simply functions that will show how pattern matching works
+-- If you're following in order this file is a little bigger than some of the files you've seen so far
+-- But it only contains very simple functions that will show how pattern matching works
 -- For function arguments. It will include a few things used in previous files, but that's it!
 
 -- Below we have a function called lucky
