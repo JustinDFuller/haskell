@@ -10,3 +10,4 @@ Learning haskell
 * [Types](./types.hs)
 * [Main Function](./main-function.hs)
 * [Do](./do.hs)
+* [Pattern Matching](./patternMatching.hs)

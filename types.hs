@@ -78,3 +78,5 @@ read "5" :: Int -- 5
 
 -- Num: *, +, - and other math operators
 -- Num also has a dependency on Show and Eq typeclasses, meaning that if you are Num you are also Show and Eq
+
+-- Integral: includes Int and Integer, only whole numbers.
