@@ -46,3 +46,5 @@ There are two ways to use these files. Option one, you can follow them in order 
 * [Show](https://hackage.haskell.org/package/base-4.10.0.0/docs/Text-Show.html)
 * [Read](https://hackage.haskell.org/package/base-4.10.0.0/docs/Text-Read.html)
 * [Numeric](https://hackage.haskell.org/package/base-4.10.0.0/docs/Numeric.html)
+
+The topics and their explanations are summarized in my own words, for the purpose of learning, from the book [Learn You A Haskell](http://learnyouahaskell.com)
