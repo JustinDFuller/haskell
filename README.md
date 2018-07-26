@@ -13,7 +13,7 @@ The linter used is hlint, it can be found [here](https://hackage.haskell.org/pac
 
 ## How to use
 
-There are two ways to use these files. You can follow them in order to build up to a working knowledge of Haskell. If you already know Haskell and need a quick refresher on a topic you can jump to that file to get a reminder about syntax and usage.
+There are two ways to use these files. Option one, you can follow them in order to build up to a working knowledge of Haskell. Option two, if you already know Haskell but need a quick refresher on a topic, you can jump to that file to get a refresher on syntax and usage.
 
 ## Topics
 
