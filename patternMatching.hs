@@ -68,7 +68,38 @@ third :: (a, b, c) -> c
 third (_, _, z) = z  
 -- Again, it's still similar to destructuring, since it's a catch-all function.
 
--- Pattern matching works for list comprehensions too
+-- Pattern matching works in list comprehensions too
 -- let xs = [(1,3), (4,3), (2,4), (5,3), (5,6), (3,1)]  
--- [a+b | (a,b) <- xs]
+-- [a+b | (a,b) <- xs] here we match against tuples (a,b)
 -- If a match isn't found then it will filter that index out
+-- But in this one we used a catch-all so nothing is filtered out
+
+-- Pattern matching against lists
+
+-- Remember that this is equal: [1,2,3] 1:2:3:[]
+-- To get there first index we can do: (xs:_) which is the same as 1:[2,3]
+-- So the variable 1 will be called xs in this scenario
+
+-- To get the last index we can do (_:xs) which is the same as 1:2:[3]
+-- So 3 will be placed into the variable xs in this scenario
+
+-- These rules can be used to make head and length functions
+
+head' :: [a] -> a  
+head' [] = error "Head cannot be used on an empty list."  
+head' (x:_) = x  
+
+length' :: (Num b) => [a] -> b  
+length' [] = 0  
+length' (_:xs) = 1 + length' xs  
+
+-- You can also specify that the variables are the ONLY ones in the list
+-- By doing (a:[]) for one item in a list.. or (a:b:[]) for two items in a list, etc.
+
+tell :: (Show a) => [a] -> String  
+tell [] = "The list is empty"  
+tell [x] = "The list has one element: " ++ show x  
+tell [x,y] = "The list has two elements: " ++ show x ++ " and " ++ show y  
+tell (x:y:_) = "This list is long. The first two elements are: " ++ show x ++ " and " ++ show y 
+
+-- A literal pattern was used above for [x] and [x,y], based on hlint suggestions
