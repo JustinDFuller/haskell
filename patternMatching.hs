@@ -44,3 +44,31 @@ main = do
   putStrLn (sayMe (read guessAgain :: Int))
   -- Respond with any number 1-5 to see the specified pattern results
   -- Response with any other number to see the catch-all
+
+-- Pattern matching can also fail. If you define a pattern
+-- But not a catch all pattern, an error will be thrown when to match is found.
+-- To avoid this, ALWAYS define a catch-all pattern
+
+-- You can also pattern match tuples
+addVectors :: (Num a) => (a, a) -> (a, a) -> (a, a)  
+addVectors (x1, y1) (x2, y2) = (x1 + x2, y1 + y2)  
+-- You'll probably notice that this is more like destructuring
+-- Because it's a catch-all pattern that allows you to name
+-- The tuple indexes as variable names
+
+-- This type of pattern matching makes it easier to mimic the "fst" and "snd"
+-- Functions that haskell provides for tuples.. for other sizes as well!
+first :: (a, b, c) -> a  
+first (x, _, _) = x  
+  
+second :: (a, b, c) -> b  
+second (_, y, _) = y  
+  
+third :: (a, b, c) -> c  
+third (_, _, z) = z  
+-- Again, it's still similar to destructuring, since it's a catch-all function.
+
+-- Pattern matching works for list comprehensions too
+-- let xs = [(1,3), (4,3), (2,4), (5,3), (5,6), (3,1)]  
+-- [a+b | (a,b) <- xs]
+-- If a match isn't found then it will filter that index out

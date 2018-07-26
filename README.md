@@ -11,3 +11,7 @@ Learning haskell
 * [Main Function](./main-function.hs)
 * [Do](./do.hs)
 * [Pattern Matching](./patternMatching.hs)
+
+## Extra
+
+The linter used is hlint, it can be found [here](https://hackage.haskell.org/package/hlint). In order to use it you'll need to have [hackage](https://hackage.haskell.org/) installed.
