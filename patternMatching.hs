@@ -109,25 +109,38 @@ tell (x:y:_) = "This list is long. The first two elements are: " ++ show x ++ " 
 sum' :: (Num a) => [a] -> a  
 sum' [] = 0  
 sum' (x:xs) = x + sum' xs  
+-- the (x) take the first element off of the array, creating a ne array, xs
+-- xs is given to sum, and repeated all the way down until it's an empty array
+-- Eventually it adds them all together: sum1 [1,2,3] = 1 + 2 + 3 = 6
 
 -- If you have hlint installed you'll see the it says we shouldn't
 -- Implement sum like this. The problem is that if the xs array is too big
 -- It can potentially cause a stack overflow. Because the + function requires
 -- Both sides to be fully evaluated before it evaluates. 
 -- This means that if xs is 1 million numbers, there will be 1 million calls
--- To sum' before anything is evaluated.
+-- To sum' and 1 million arrays created before any addition is evaluated.
 
 -- I'm jumping ahead now, but instead sum' can be implemented like this:
 sumFoldr :: (Num a) => [a] -> a  
 sumFoldr xs = foldr (+) 0 xs
 
--- What happens here is the foldr is like reduce
+-- foldr is like reduce
 -- foldr :: (a -> b -> b) -> b -> [a] -> b
--- It accepts a function, an initializer, and then a list
--- It then applies the function to each element in the list
+-- It accepts a function, an initializer, and a list
+-- It applies the function to each element in the list
 -- With the starting value as the initializer
 
--- Jumping even more ahead to currying.. it can be implemented like this:
+-- Jumping even more ahead to currying, it can be implemented like this:
 sumFoldrCurried :: (Num a) => [a] -> a  
 sumFoldrCurried foldr (+) 0
--- foldr is curried, so it will wait for the array before executing
+-- foldr is curried, so it will wait for the "[a]" array before executing
+
+-- Sometimes you'll need to retain a refrence to the whole list
+-- You can do that by using "@"
+capital :: String -> String  
+capital "" = "Empty string, whoops!"  
+capital all@(x:xs) = "The first letter of " ++ all ++ " is " ++ [x] 
+-- x:xs is still applied like normal, but the whole array is also
+-- Bound to a variable called "all"
+-- Otherwise you'd have to do: "The first letter of " ++ x:xs ++ " is "
+-- This is a great way to avoid repetition which keeps things DRY
