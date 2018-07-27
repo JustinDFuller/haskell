@@ -25,6 +25,7 @@ There are two ways to use these files. Option one, you can follow them in order 
 * [Main Function](./main-function.hs)
 * [Do](./do.hs)
 * [Pattern Matching](./patternMatching.hs)
+* [Guards](./guards.hs)
 
 ## Resources
 

@@ -144,3 +144,7 @@ capital all@(x:xs) = "The first letter of " ++ all ++ " is " ++ [x]
 -- Bound to a variable called "all"
 -- Otherwise you'd have to do: "The first letter of " ++ x:xs ++ " is "
 -- This is a great way to avoid repetition which keeps things DRY
+
+-- Summary:
+-- Patterns are used to call a function when a value conforms to an expected value
+-- It's also a useful way to deconstruct a value
