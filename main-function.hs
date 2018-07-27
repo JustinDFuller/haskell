@@ -2,7 +2,7 @@
 -- It will simply print a string to the console.
 
 -- putStrLn :: String -> IO ()  
--- We use putStrLn to print a string to stdout
+-- You can use putStrLn to print a string to stdout
 -- It's a function that take a String and returns
 -- An IO that has an empty result type of ()
 

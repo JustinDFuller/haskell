@@ -5,7 +5,7 @@
 -- The do syntax allows us to perform several IO functions
 -- And "string" them together to get a result.
 
--- Below we've written a question to stdout
+-- Below I've written a question to stdout
 -- And are now going to wait on a response with getLine
 -- getLine :: IO String
 -- By using the "<-" operator the resulting String is

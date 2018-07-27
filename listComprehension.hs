@@ -5,9 +5,9 @@ let firstTenEvenNumbers = [x*2 | x <- [1..10]] -- [2,4,6,8,10,12,14,16,18,20]
 
 -- The part before the pipe "|" is the output function
 -- After the pipe, x is the variable retrieved from the list
--- And then of course we have the list
+-- And then of course there is the list
 
--- We can also add a predecate to further filter the result
+-- You can also add a predecate to further filter the result
 let firstTenEvenNumbersGreaterThanTwelve = [x*2 | x <- [1..10], x*2 >= 12] -- [12,14,16,18,20]
 
 -- The output function modifies the variable
@@ -47,7 +47,7 @@ let nounAdjectiveCombos = [adjective ++ " " ++ noun | adjective <- adjectives, n
 
 -- Get the length of a list
 listLength = xs = sum [1 | _ <- xs] -- convert every index to the number 1, and then sum the list of 1s
--- the "_" means that we are not drawing a variable
+-- the "_" means that the function is not returning a variable
 
 -- Remove anything that is not an uppercase letter
 removeNonUppercase st = [c | c <- st, c `elem` ['A'..'Z']]   
@@ -55,7 +55,7 @@ removeNonUppercase st = [c | c <- st, c `elem` ['A'..'Z']]
 -- What if the list contains other lists?
 let xxs = [[1,3,5,2,3,1,2,4,5],[1,2,3,4,5,6,7,8,9],[1,2,4,2,1,6,3,1,3,2,3,6]] 
 let onlyEvenLists = [[x | x <- xs, even x] | xs <- xxs] -- [[2,2,4],[2,4,6,8],[2,4,2,6,2,6]] 
--- Here we have two list comprehensions, one inside another!
+-- Here there are two list comprehensions, one inside another!
 -- The outer list comprehension pulls out each nested list as the variable "xs"
 -- Then the inner list comprehension pulls out each index from "xs" as "x"
 -- And finally the predicate of the inner comprehension filters out any numbers that are not even

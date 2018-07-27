@@ -20,8 +20,9 @@ addThree :: Int -> Int -> Int -> Int
 addThree x y z = x + y + z
 
 -- Instead of having something line Int, Int, Int -> Int
--- We know the last type is the return type and the rest are arguments
--- This is because the function is curried (./functions.hs)
+-- The last type is always the return type 
+-- and anything before that is an argument.
+-- This is because the function is curried (more on that later!)
 
 -- Common types:
 
@@ -47,7 +48,7 @@ fst :: (a, b) -> a
 
 -- Typeclasses
 
--- Sometimes we can accept any type as long as it meets certain requirements
+-- Sometimes a function can accept any type as long as it meets certain requirements
 -- Typeclasses accept any variable that implements a certain class
 
 -- == :: (Eq a) => a -> a -> Bool  

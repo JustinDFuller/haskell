@@ -77,7 +77,7 @@ third (_, _, z) = z
 -- Pattern matching against lists
 
 -- Remember that this is equal: [1,2,3] 1:2:3:[]
--- To get there first index we can do: (xs:_) which is the same as 1:[2,3]
+-- To get the first index we can do: (xs:_) which is the same as 1:[2,3]
 -- So the variable 1 will be called xs in this scenario
 
 -- To get the last index we can do (_:xs) which is the same as 1:2:[3]
@@ -103,3 +103,31 @@ tell [x,y] = "The list has two elements: " ++ show x ++ " and " ++ show y
 tell (x:y:_) = "This list is long. The first two elements are: " ++ show x ++ " and " ++ show y 
 
 -- A literal pattern was used above for [x] and [x,y], based on hlint suggestions
+
+-- A function that sums a list of numbers can be created by
+-- using pattern matching and recursion.
+sum' :: (Num a) => [a] -> a  
+sum' [] = 0  
+sum' (x:xs) = x + sum' xs  
+
+-- If you have hlint installed you'll see the it says we shouldn't
+-- Implement sum like this. The problem is that if the xs array is too big
+-- It can potentially cause a stack overflow. Because the + function requires
+-- Both sides to be fully evaluated before it evaluates. 
+-- This means that if xs is 1 million numbers, there will be 1 million calls
+-- To sum' before anything is evaluated.
+
+-- I'm jumping ahead now, but instead sum' can be implemented like this:
+sumFoldr :: (Num a) => [a] -> a  
+sumFoldr xs = foldr (+) 0 xs
+
+-- What happens here is the foldr is like reduce
+-- foldr :: (a -> b -> b) -> b -> [a] -> b
+-- It accepts a function, an initializer, and then a list
+-- It then applies the function to each element in the list
+-- With the starting value as the initializer
+
+-- Jumping even more ahead to currying.. it can be implemented like this:
+sumFoldrCurried :: (Num a) => [a] -> a  
+sumFoldrCurried foldr (+) 0
+-- foldr is curried, so it will wait for the array before executing
