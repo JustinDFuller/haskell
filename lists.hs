@@ -1,7 +1,13 @@
+-- Tasty is a library for structuring unit tests
+-- It provides assertions and output formatting
 import Test.Tasty
 import Test.Tasty.HUnit
 
-numberList = [0,1,2,3,4,5]
+-- @?= is essentially an "assertEquals" function
+-- It expects the left and right hand arguments to be equal
+
+-- Read the tests from top to bottom to see how a list works
+-- Assume all tests pass
 
 -- -- Lists are homogenous data structures.
 -- -- They can only contain a single type
@@ -16,8 +22,13 @@ stringTests = testGroup "Strings"
   testCase "You can prepend a character to a string" $
     -- notice ":" takes a char on the left and a list on the right
     -- While ++ takes a list on both sides
-    ('!':"another string!") @?= "!another string!"
+    ('!':"another string!") @?= "!another string!",
+  testCase "Using double quotes is shorthand" $
+    't':'e':'s':'t':[] @?= "test"
   ]
+
+-- This list will be our example value below
+numberList = [0,1,2,3,4,5]
 
 numberTests = testGroup "Numbers"
  [
@@ -52,6 +63,7 @@ functionTests = testGroup "List Functions"
   testCase "length returns the number of indexes in a list" $
     length numberList @?= 6,
   testCase "length returns 0 for an empty list" $
+    -- hlint warning ignored for learning purposes
     length [] @?= 0,
   testCase "null evaluates if a list is empty" $
     null numberList @?= False,
@@ -79,4 +91,4 @@ functionTests = testGroup "List Functions"
 main = defaultMain tests
 
 tests :: TestTree
-tests = testGroup "Lists" [stringTests,numberTests,functionTests]
+tests = testGroup "Lists Learning Tests" [stringTests,numberTests,functionTests]
