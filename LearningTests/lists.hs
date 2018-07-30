@@ -1,4 +1,6 @@
--- Tasty is a library for structuring unit tests
+module LearningTests.Lists ( listTests ) where
+
+  -- Tasty is a library for structuring unit tests
 -- It provides assertions and output formatting
 import Test.Tasty
 import Test.Tasty.HUnit
@@ -53,7 +55,7 @@ numberTests = testGroup "Numbers"
     ([3,20,1] > [3,10,100]) @?= True
  ]
 
-functionTests = testGroup "List Functions"
+listFunctionTests = testGroup "List Functions"
  [
   -- beware calling these functions on an empty list throws an error 
   testCase "head retrieves the value at index 0" $
@@ -93,7 +95,5 @@ functionTests = testGroup "List Functions"
     elem 6 numberList @?= False
  ]
 
-main = defaultMain tests
-
-tests :: TestTree
-tests = testGroup "Lists Learning Tests" [stringTests,numberTests,functionTests]
+listTests :: TestTree
+listTests = testGroup "Lists Learning Tests" [stringTests,numberTests,listFunctionTests]

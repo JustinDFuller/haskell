@@ -17,7 +17,7 @@ There are two ways to use these files. Option one, you can follow them in order 
 
 ## Topics
 
-* [Lists](./lists.hs)
+* [Lists](./LearningTests/lists.hs)
 * [Ranges](./ranges.hs)
 * [List Comprehensions](./listComprehension.hs)
 * [Tuples](./tuples.hs)
