@@ -78,7 +78,7 @@ main = do
   num1 <- getLine
   putStrLn "Find the max, number two:"
   num2 <- getLine
-  putStrLn ("The bigger number is: " ++ (show (max' (read num1 :: Int) (read num2 :: Int)) :: String))
+  putStrLn "The bigger number is: " ++ show (max' (read num1 :: Int) (read num2 :: Int))
   putStrLn "What's your first name?"
   firstname <- getLine
   putStrLn "What's your last name?"

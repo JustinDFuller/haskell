@@ -1,65 +1,82 @@
--- NOTE: this file is not meant to compile at this time..it demonstrates syntax
+import Test.Tasty
+import Test.Tasty.HUnit
 
--- Lists are homogenous data structures.
--- They can only contain a single type
+numberList = [0,1,2,3,4,5]
 
--- strings are lists
-let stringList = "lists are strings"
+-- -- Lists are homogenous data structures.
+-- -- They can only contain a single type
+stringTests = testGroup "Strings"
+  [
+  testCase "Strings are lists" $
+    "strings" @?= ['s','t','r','i','n','g','s'],
+  testCase "You can append two strings together" $
+    -- be careful when using ++ because haskell iterates
+    -- The entire list on the LEFT side of ++
+    ("One string" ++ ", another string!") @?= "One string, another string!",
+  testCase "You can prepend a character to a string" $
+    -- notice ":" takes a char on the left and a list on the right
+    -- While ++ takes a list on both sides
+    ('!':"another string!") @?= "!another string!"
+  ]
 
--- You can add on to the string like this:
-let anotherString = stringList ++ "Another string!"
+numberTests = testGroup "Numbers"
+ [
+  testCase "You can prepend a number to a list" $
+    -- In haskell it is more performant to add to the
+    -- beginning of a list than the end.
+    (0:[1,2,3,4,5]) @?= numberList,
+  testCase "You can retrieve from a list with 'list !! index'" $
+    -- Note that indexes start at zero because haskell is a sane language :)
+    numberList !! 4 @?= 4,
+  testCase "Lists can also contain other lists" $
+    -- The inner lists can be different lengths but NOT different types
+    numberList:[[1,2,3]]  @?= [numberList,[1,2,3]],
+  testCase "You can compare lists if they have comparable types" $
+    ([3,2,1] > [2,1,0]) @?= True,
+  testCase "Comparisons walk through the list until non-equal values are found" $
+    ([3,20,1] > [3,10,100]) @?= True
+ ]
 
--- be careful when using ++ because haskell iterates
--- The entire list on the LEFT side of ++
+functionTests = testGroup "List Functions"
+ [
+  -- beware calling these functions on an empty list throws an error 
+  testCase "head retrieves the value at index 0" $
+    head numberList @?= 0,
+  testCase "tail retrieves all but the value at index 0" $
+    tail numberList @?= [1,2,3,4,5],
+  testCase "last retrieves the value at the highest index" $
+    last numberList @?= 5,
+  testCase "init retrieves all but the value at the highest index" $
+    init numberList @?= [0,1,2,3,4],
+  -- below are some functions that can help guard against empty list exceptions
+  testCase "length returns the number of indexes in a list" $
+    length numberList @?= 6,
+  testCase "length returns 0 for an empty list" $
+    length [] @?= 0,
+  testCase "null evaluates if a list is empty" $
+    null numberList @?= False,
+  testCase "null returns true for an empty list" $
+    null [] @?= True,
+  -- Here are more useful list functions
+  testCase "reverse returns a list with the values reversed" $
+    reverse numberList @?= [5,4,3,2,1,0],
+  testCase "take returns the list with only the first n indexes" $
+    take 1 numberList @?= [0],
+  testCase "returns the list with the first n indexes missing" $
+    drop 2 numberList @?= [2,3,4,5],
+  testCase "returns the highest value found in the list" $
+    maximum numberList @?= 5,
+  testCase "adds each value in the list" $
+    sum numberList @?= 15,
+  testCase "multiplies each value in the list" $
+    product (drop 1 numberList) @?= 120,
+  testCase "evaluates if the value is in the list" $
+    elem 5 numberList @?= True,
+  testCase "returns false if the value is not in the list" $
+    elem 6 numberList @?= False
+ ]
 
--- You can add a single character to the beginning of the list instead
-let another = "!":anotherString
+main = defaultMain tests
 
--- In haskell it is more performant to add to the beginning of a list than the end.
-let numberList = [1,2,3,4,5] 
-let zeroIndexedNumberList = 0:numberList
-
--- notice ":" takes a char on the left and a list on the right
--- While ++ takes a list on both sides
-
--- You can retrieve from a list with "list !! index" like this:
-let five - numberList !! 4
-
--- Note that indexes start at zero because haskell is a sane language :)
-
--- Lists can also contain other lists
-let listOfNumberLists = [numberList, [1,2,3]]
-
--- The inner lists can be different lengths but NOT different types
-
--- You can compare lists if they have comparable types
-
-[3,2,1] > [2,1,0] -- true
-
-[3,20,1] > [3,10,100] -- true, compares each element starting at 
--- index 0 until if finds a pair that are not equal
-
--- Standard list functions
-head numberList -- 1
-tail numberList -- [2,3,4,5]
-last numberList -- 5
-init numberList -- [1,2,3,4]
-
--- beware calling the above functions on an empty list throws an error
--- below are some functions that can help guard against that exception
-
-length numberList -- 5
-length [] -- 0
-null numberList -- false
-null [] -- true
-
--- more useful list functions
-
-reverse numberList -- [5,4,3,2,1]
-take 1 numberList -- 1
-drop 2 numberList -- [3,4,5]
-maximum numberList -- 5
-sum numberList -- 15
-product numberList -- 120
-elem 5 numberList -- true
-elem 6 numberList -- false
+tests :: TestTree
+tests = testGroup "Lists" [stringTests,numberTests,functionTests]
