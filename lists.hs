@@ -6,6 +6,11 @@ import Test.Tasty.HUnit
 -- @?= is essentially an "assertEquals" function
 -- It expects the left and right hand arguments to be equal
 
+-- The use of $ (the infix/application) operator
+-- Avoids needing to wrap the assertions in brackets ()
+-- The very first test does not use it in order to demonstrate the difference
+-- All other tests will use it for now on
+
 -- Read the tests from top to bottom to see how a list works
 -- Assume all tests pass
 
@@ -13,8 +18,8 @@ import Test.Tasty.HUnit
 -- -- They can only contain a single type
 stringTests = testGroup "Strings"
   [
-  testCase "Strings are lists" $
-    "strings" @?= ['s','t','r','i','n','g','s'],
+  testCase "Strings are lists"
+    ("strings" @?= ['s','t','r','i','n','g','s']),
   testCase "You can append two strings together" $
     -- be careful when using ++ because haskell iterates
     -- The entire list on the LEFT side of ++
