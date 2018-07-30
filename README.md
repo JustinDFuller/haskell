@@ -15,6 +15,8 @@ The linter used is hlint, it can be found [here](https://hackage.haskell.org/pac
 
 There are two ways to use these files. Option one, you can follow them in order to build up to a working knowledge of Haskell. Option two, if you already know Haskell but need a quick refresher on a topic, you can jump to that file to see syntax and usage.
 
+To run the tests use `runhaskell main.hs`. This will run the main file that imports all the tests defined in the other files. Alternatively you can run a single set of tests with `runhaskell FILE.hs`.
+
 ## Topics
 
 * [Lists](./LearningTests/lists.hs)
