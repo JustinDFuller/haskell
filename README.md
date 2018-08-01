@@ -19,8 +19,8 @@ To run the tests use `runhaskell main.hs`. This will run the main file that impo
 
 ## Topics
 
-* [Lists](./LearningTests/lists.hs)
-* [Ranges](./ranges.hs)
+* [Lists](./LearningTests/Lists.hs)
+* [Ranges](./LearningTests/Ranges.hs)
 * [List Comprehensions](./listComprehension.hs)
 * [Tuples](./tuples.hs)
 * [Types](./types.hs)
