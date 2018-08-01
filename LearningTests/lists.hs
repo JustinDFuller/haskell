@@ -96,4 +96,4 @@ listFunctionTests = testGroup "List Functions"
  ]
 
 listTests :: TestTree
-listTests = testGroup "Lists Learning Tests" [stringTests,numberTests,listFunctionTests]
+listTests = testGroup "Lists" [stringTests,numberTests,listFunctionTests]
