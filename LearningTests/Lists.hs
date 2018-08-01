@@ -1,6 +1,14 @@
+-- Here we are declaring the Lists module
+-- Which is nested in the LearningTests module
+-- This means haskell will look in the path /LearningTests/Lists.hs
+-- For this module. It's case sensitive on unix systems, not windows.
 module LearningTests.Lists ( listTests ) where
+-- listTests is an export (see it at the bottom of this file)
+-- "where" is a required keyword, essentially it'll look for
+-- listTests in the variables below
+-- Note: Only the variables listed in () will be exported
 
-  -- Tasty is a library for structuring unit tests
+-- Tasty is a library for structuring unit tests
 -- It provides assertions and output formatting
 import Test.Tasty
 import Test.Tasty.HUnit
