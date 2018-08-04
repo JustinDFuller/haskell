@@ -24,22 +24,22 @@ import Test.Tasty.HUnit
 -- Read the tests from top to bottom to see how a list works
 -- Assume all tests pass
 
--- -- Lists are homogenous data structures.
--- -- They can only contain a single type
+-- Lists are homogenous data structures.
+-- They can only contain a single type
 stringTests = testGroup "Strings"
   [
-  testCase "Strings are lists"
-    ("strings" @?= ['s','t','r','i','n','g','s']),
-  testCase "You can append two strings together" $
-    -- be careful when using ++ because haskell iterates
-    -- The entire list on the LEFT side of ++
-    ("One string" ++ ", another string!") @?= "One string, another string!",
-  testCase "You can prepend a character to a string" $
-    -- notice ":" takes a char on the left and a list on the right
-    -- While ++ takes a list on both sides
-    ('!':"another string!") @?= "!another string!",
-  testCase "Using double quotes is shorthand" $
-    't':'e':'s':'t':[] @?= "test"
+    testCase "Strings are lists"
+      ("strings" @?= ['s','t','r','i','n','g','s']),
+    testCase "You can append two strings together" $
+      -- be careful when using ++ because haskell iterates
+      -- The entire list on the LEFT side of ++
+      ("One string" ++ ", another string!") @?= "One string, another string!",
+    testCase "You can prepend a character to a string" $
+      -- notice ":" takes a char on the left and a list on the right
+      -- While ++ takes a list on both sides
+      ('!':"another string!") @?= "!another string!",
+    testCase "Using double quotes is shorthand" $
+      't':'e':'s':'t':[] @?= "test"
   ]
 
 -- This list will be our example value below
