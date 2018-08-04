@@ -2,10 +2,10 @@
 -- Which is nested in the LearningTests module
 -- This means haskell will look in the path /LearningTests/Lists.hs
 -- For this module. It's case sensitive on unix systems, not windows.
-module LearningTests.Lists ( listTests ) where
--- listTests is an export (see it at the bottom of this file)
+module LearningTests.Lists ( tests ) where
+-- tests is an export (see it at the bottom of this file)
 -- "where" is a required keyword, essentially it'll look for
--- listTests in the variables below
+-- tests in the variables below
 -- Note: Only the variables listed in () will be exported
 
 -- Tasty is a library for structuring unit tests
@@ -103,5 +103,5 @@ listFunctionTests = testGroup "List Functions"
     elem 6 numberList @?= False
  ]
 
-listTests :: TestTree
-listTests = testGroup "Lists" [stringTests,numberTests,listFunctionTests]
+tests :: TestTree
+tests = testGroup "Lists" [stringTests,numberTests,listFunctionTests]

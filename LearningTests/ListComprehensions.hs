@@ -1,9 +1,9 @@
-module LearningTests.ListComprehensions ( listComprehensionTests ) where
+module LearningTests.ListComprehensions ( tests ) where
 
 import Test.Tasty
 import Test.Tasty.HUnit
 
-tests = testGroup "Basic Usage"
+basicTests = testGroup "Basic Usage"
   [
     testCase "Mapping with an output function" $
       [x*2 | x <- [1..10]] @?= [2,4,6,8,10,12,14,16,18,20],
@@ -49,5 +49,5 @@ tests = testGroup "Basic Usage"
   ]
 
 
-listComprehensionTests :: TestTree
-listComprehensionTests = testGroup "List Comprehensions" [tests]
+tests :: TestTree
+tests = testGroup "List Comprehensions" [basicTests]

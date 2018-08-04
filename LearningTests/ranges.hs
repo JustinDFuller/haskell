@@ -1,4 +1,4 @@
-module LearningTests.Ranges ( rangeTests ) where
+module LearningTests.Ranges ( tests ) where
 
 import Test.Tasty
 import Test.Tasty.HUnit
@@ -46,5 +46,5 @@ numberTests = testGroup "Numbers"
       replicate 3 3 @?= [3,3,3]
   ]
 
-rangeTests :: TestTree
-rangeTests = testGroup "Ranges" [stringTests,numberTests]
+tests :: TestTree
+tests = testGroup "Ranges" [stringTests,numberTests]

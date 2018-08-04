@@ -22,7 +22,7 @@ To run the tests use `runhaskell main.hs`. This will run the main file that impo
 * [Lists](./LearningTests/Lists.hs)
 * [Ranges](./LearningTests/Ranges.hs)
 * [List Comprehensions](./LearningTests/ListComprehensions.hs)
-* [Tuples](./tuples.hs)
+* [Tuples](./LearningTests/Tuples.hs)
 * [Types](./types.hs)
 * [Main Function](./main-function.hs)
 * [Do](./do.hs)
