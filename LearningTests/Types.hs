@@ -1,4 +1,7 @@
--- Note: This file is not meant to compile. Instead it's purpose is to show syntax.
+module LearningTests.Types ( tests ) where
+  
+import Test.Tasty
+import Test.Tasty.HUnit
 
 -- Examples of types after running the ghci :t command (:: means "has type of"):
 -- 'a' :: Char
@@ -9,7 +12,7 @@
 -- You can give functions explicit type declarations
 -- Here's an example from a function created earlier:
 
-removeNonUppercase :: [Char] -> [Char]  -- this is the same as: removeNonUppercase :: String -> String
+removeNonUppercase :: String -> String
 removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']] 
 
 -- This says removeNonUppercase takes a list of Chars and returns a list of Chars
@@ -37,12 +40,12 @@ addThree x y z = x + y + z
 
 -- Type variables
 
-head :: [a] -> a  
+-- head :: [a] -> a  
 
 -- Type variables are lowercase and mean that it can be any type
 -- So head returns a single .. something.. from a list of .. somethings!
 
-fst :: (a, b) -> a 
+-- fst :: (a, b) -> a 
 
 -- The function fst (from the tuples file) accepts a tuple, and returns the first element, no matter what type.
 
@@ -67,8 +70,8 @@ fst :: (a, b) -> a
 
 -- Read: read (Convert from string "3" -> 3)
 -- read is interesting because it needs more information about what to return
-read "5" - 2 -- 7
-read "5" :: Int -- 5
+-- read "5" - 2 -- 3
+-- read "5" :: Int -- 5
 
 -- If you do not do something with the result of read you get an error because the 
 -- Compiler does not know how to "read" the argument.
@@ -81,3 +84,23 @@ read "5" :: Int -- 5
 -- Num also has a dependency on Show and Eq typeclasses, meaning that if you are Num you are also Show and Eq
 
 -- Integral: includes Int and Integer, only whole numbers.
+
+typeTests = testGroup "Type coercion"
+  [
+    testCase "read" $
+      read "5" - 2 @?= 3,
+    testCase "Read specifiy type" $
+      (read "5" :: Int) @?= 5,
+    testCase "Show" $
+      show 7 @?= "7"
+  ]
+  
+exampleTypes = testGroup "Examples" [
+  testCase "removeNonUppercase" $
+      removeNonUppercase "lower UPPER 849 $%@" @?= "UPPER",
+  testCase "addThree" $
+    addThree 1 2 3 @?= 6
+  ]
+
+tests :: TestTree
+tests = testGroup "Types" [typeTests,exampleTypes]

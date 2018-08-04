@@ -16,7 +16,7 @@ import Test.Tasty.HUnit
 
 -- Remember that strings are lists of characters, so this shows that tuples can contain any type of list!
 
-tupleTests = testGroup "Numbers"
+tupleTests = testGroup "Basic Usage"
   [
     testCase "Get the first element of a tuple" $
       fst (8, 10) @?= 8,
